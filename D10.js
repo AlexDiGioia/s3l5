@@ -384,7 +384,7 @@ console.log("only the years: ", onlyTheYears(movies));
 const onlyTheLastMillennium = function (moviesArray) {
   const years = [];
   moviesArray.forEach((movie) => {
-    if (movie.Year > 999 && movie.Year<2000) years.push(movie.Year);
+    if (movie.Year > 999 && movie.Year < 2000) years.push(movie.Year);
   });
   return years;
 };
@@ -394,13 +394,13 @@ console.log("only the last millennium: ", onlyTheLastMillennium(movies));
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 
-const sumAllTheYears=function(moviesArray){
-  let sum=0;
-  moviesArray.forEach(movie => {
-    sum+=parseInt(movie.Year);
+const sumAllTheYears = function (moviesArray) {
+  let sum = 0;
+  moviesArray.forEach((movie) => {
+    sum += parseInt(movie.Year);
   });
   return sum;
-}
+};
 
 console.log("Sum all years: ", sumAllTheYears(movies));
 
@@ -408,37 +408,43 @@ console.log("Sum all years: ", sumAllTheYears(movies));
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 
-const searchByTitle=function(string){
-  return movies.filter(movie => movie.Title.toLocaleLowerCase().includes(string.toLocaleLowerCase()));
-}
+const searchByTitle = function (string) {
+  return movies.filter((movie) =>
+    movie.Title.toLocaleLowerCase().includes(string.toLocaleLowerCase())
+  );
+};
 console.log("search by title: ", searchByTitle("Lord"));
-
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
-const searchAndDivide=function(string){
-  const research={
-    match:[],
-    unmatch:[],
-  }
-  research.match=searchByTitle(string);
-  movies.forEach(movie => {
-    if(!(research.match.includes(movie.Title)))research.unmatch.push(movie)
+const searchAndDivide = function (string) {
+  const research = {
+    match: [],
+    unmatch: [],
+  };
+  research.match = searchByTitle(string);
+  movies.forEach((movie) => {
+    if (!research.match.includes(movie.Title)) research.unmatch.push(movie);
   });
-return research;
-}
+  return research;
+};
 
 console.log("search and divide: ", searchAndDivide("Lord of the Flies"));
-
 
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+console.log("controllo movies", movies);
 
+const removeIndex = (index) => {
+  movies.splice(index, 1);
+  return movies;
+};
 
+console.log("remove index: ", removeIndex(5));
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
