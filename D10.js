@@ -195,7 +195,7 @@ const dateToConfront = new Date("2024-05-01");
 const howManyDays = function (date) {
   const today = new Date();
   const timpePassed = today.getTime() - date.getTime();
-  const daysPassed = Math.round(timpePassed / (1000 * 3600 * 24));
+  const daysPassed = Math.round(timpePassed / (1000 * 3600 * 24)); //trasforma il getTime in giorno
   return daysPassed;
 };
 console.log("how many days:1 maggio 2024: ", howManyDays(dateToConfront));
@@ -425,7 +425,7 @@ const searchAndDivide = function (string) {
     match: [],
     unmatch: [],
   };
-  research.match = searchByTitle(string);
+  research.match = searchByTitle(string); //funzione es 17
   movies.forEach((movie) => {
     if (!research.match.includes(movie.Title)) research.unmatch.push(movie);
   });
@@ -466,7 +466,7 @@ const selectAlltd = function () {
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 const stampAlltd = function () {
-  const tdList = selectAlltd();
+  const tdList = selectAlltd(); //funzione dell'es 21
   tdList.forEach((td) => {
     console.log(td.value);
   });
@@ -497,7 +497,6 @@ const addListElement = function () {
 */
 const emptyList = function () {
   const myList = document.getElementById("myList");
-  const newListItem = document.createElement("li");
   //fino a che la lista ha ancora un primo figlio elimina il primo figlio (il secondo diventerà primo, poi il terzo etc...)
   while (myList.firstChild()) {
     element.firstChild.remove();
@@ -532,11 +531,12 @@ const halfTree = function (h) {
   let draw = "";
   for (let i = 1; i <= h; i++) {
     draw += "\n"; //salva la riga precedente e va a capo
-    for (let m = 1; m < i; m++) {
+    for (let m = 1; m <= i; m++) {
       draw += "*";
     }
   }
   console.log(draw);
+
 };
 halfTree(5);
 
