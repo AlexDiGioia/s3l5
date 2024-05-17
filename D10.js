@@ -451,30 +451,69 @@ console.log("remove index: ", removeIndex(5));
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+const selectContainer = function () {
+  return document.getElementById("container");
+};
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+const selectAlltd = function () {
+  return document.getElementsByTagName("td"); //anche document.querySelectorAll("td");
+};
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+const stampAlltd = function () {
+  const tdList = selectAlltd();
+  tdList.forEach((td) => {
+    console.log(td.value);
+  });
+};
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+const liksRed = function () {
+  allLinks = document.getElementsByTagName("a");
+  allLinks.forEach((a) => {
+    a.style.backgroundColor = "red";
+  });
+};
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+const addListElement = function () {
+  const myList = document.getElementById("myList");
+  const newListItem = document.createElement("li");
+  myList.appendChild(newListItem);
+};
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+const emptyList = function () {
+  const myList = document.getElementById("myList");
+  const newListItem = document.createElement("li");
+  //fino a che la lista ha ancora un primo figlio elimina il primo figlio (il secondo diventerà primo, poi il terzo etc...)
+  while (myList.firstChild()) {
+    element.firstChild.remove();
+  }
+};
 
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const addTestClass = function () {
+  const draws = document.getElementsByTagName("tr");
+  draws.forEach((draw) => {
+    draw.classList.add("test");
+  });
+};
 
 // [EXTRA] JS Avanzato
 
@@ -489,6 +528,17 @@ console.log("remove index: ", removeIndex(5));
   ***
 
 */
+const halfTree = function (h) {
+  let draw = "";
+  for (let i = 1; i <= h; i++) {
+    draw += "\n"; //salva la riga precedente e va a capo
+    for (let m = 1; m < i; m++) {
+      draw += "*";
+    }
+  }
+  console.log(draw);
+};
+halfTree(5);
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -501,10 +551,36 @@ console.log("remove index: ", removeIndex(5));
   *****
 
 */
+const tree = function (h) {
+  let draw = "";
+  for (let i = 1; i <= h; i++) {
+    draw += "\n"; //salva la riga precedente e va a capo
+    for (let p = 0; p < h - i; p++) {
+      draw += " ";
+    }
+    for (let m = 1; m < i + i; m++) {
+      draw += "*";
+    }
+  }
+  console.log(draw);
+};
+tree(5);
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+
+function isItPrime(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i * i <= num; i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+let number =7;
+console.log("Is it Prime:",number, isItPrime(number));
+number =25;
+console.log("Is it Prime:",number, isItPrime(number));
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
