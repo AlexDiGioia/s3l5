@@ -577,10 +577,10 @@ function isItPrime(num) {
   }
   return true;
 }
-let number =7;
-console.log("Is it Prime:",number, isItPrime(number));
-number =25;
-console.log("Is it Prime:",number, isItPrime(number));
+let number = 7;
+console.log("Is it Prime:", number, isItPrime(number));
+number = 25;
+console.log("Is it Prime:", number, isItPrime(number));
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
